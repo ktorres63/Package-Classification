@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'usuarios',
     'paquetes',
     'ruta',
+    'nodo'
 ]
 
 MIDDLEWARE = [
