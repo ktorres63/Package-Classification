@@ -1,13 +1,22 @@
 from django.db import models
+from paquetes.models import Paquete
+from nodo.models import Nodo  
 
-# Create your models here.
+
+
 class Ruta(models.Model):
-    nombre = models.CharField(max_length=100)  # Nombre de la ruta
-    origen = models.CharField(max_length=255)   # Ciudad o lugar de origen
-    destino = models.CharField(max_length=255)  # Ciudad o lugar de destino
-    distancia_km = models.FloatField()           # Distancia en kilómetros
-    tiempo_estimado_horas = models.FloatField()  # Tiempo estimado en horas
+    paquete = models.ForeignKey(
+        Paquete,  # Referencia al modelo Paquete
+        on_delete=models.CASCADE,  # Si se elimina el paquete, se elimina la ruta
+    )
+    @property
+    def nodo_origen(self):
+        return self.paquete.nodo_origen
+
+    @property
+    def nodo_destino(self):
+        return self.paquete.nodo_destino
     fecha_creacion = models.DateTimeField(auto_now_add=True)  # Fecha de creación de la ruta
 
     def __str__(self):
-        return f'{self.nombre} ({self.origen} - {self.destino})'
+        return f'Ruta de Paquete {self.paquete.id} - Origen: {self.nodo_origen.nombre} Destino: {self.nodo_destino.nombre}'
