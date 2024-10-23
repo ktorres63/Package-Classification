@@ -8,6 +8,6 @@ class NodoSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         nodo = Nodo(**validated_data)
-        nodo.save()  # Guarda el nuevo usuario
+        nodo.save()  
         return nodo
 

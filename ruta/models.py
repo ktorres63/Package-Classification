@@ -9,14 +9,17 @@ class Ruta(models.Model):
         Paquete,  # Referencia al modelo Paquete
         on_delete=models.CASCADE,  # Si se elimina el paquete, se elimina la ruta
     )
-    @property
-    def nodo_origen(self):
-        return self.paquete.nodo_origen
 
-    @property
-    def nodo_destino(self):
-        return self.paquete.nodo_destino
-    fecha_creacion = models.DateTimeField(auto_now_add=True)  # Fecha de creación de la ruta
+    nodo_inicio = models.ForeignKey(
+        Nodo,  
+        related_name='ruta_inicio',  
+        on_delete=models.CASCADE,  
+    )
 
+    nodo_fin = models.ForeignKey(
+        Nodo,  
+        related_name='ruta_fin', 
+        on_delete=models.CASCADE,  
+    )
     def __str__(self):
-        return f'Ruta de Paquete {self.paquete.id} - Origen: {self.nodo_origen.nombre} Destino: {self.nodo_destino.nombre}'
+        return f'Ruta Paquete {self.paquete.id} - Inicio: {self.nodo_inicio} Fin: {self.nodo_fin}'

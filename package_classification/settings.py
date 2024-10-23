@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'usuarios',
     'paquetes',
     'ruta',
-    'nodo'
+    'nodo',
+    'logistica'
 ]
 
 MIDDLEWARE = [
