@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'usuarios',
-    'paquetes',
     'ruta',
     'nodo',
-    'logistica'
+    'logistica',
+    'paquetes.apps.PaquetesConfig',
 ]
 
 MIDDLEWARE = [

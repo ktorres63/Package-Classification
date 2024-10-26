@@ -6,8 +6,4 @@ class NodoSerializer(serializers.ModelSerializer):
         model = Nodo
         fields = ['nombre', 'latitud','longitud', 'fecha_creacion']  # Añade los campos que deseas
 
-    def create(self, validated_data):
-        nodo = Nodo(**validated_data)
-        nodo.save()  
-        return nodo
-
+    
