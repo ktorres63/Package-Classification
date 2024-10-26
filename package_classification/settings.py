@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'package_classification.wsgi.application'
+WSGI_APPLICATION = 'package-classification.wsgi.application'
 
 
 # Database
