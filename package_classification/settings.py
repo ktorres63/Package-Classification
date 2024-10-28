@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-0_3o#^y0acfo=x9-ac!1q9_w=yk%a&3v(ko+%7w7!x$9tw(ejg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['package-classification.onrender.com']
+# ALLOWED_HOSTS = ['package-classification.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,14 +82,25 @@ WSGI_APPLICATION = 'package_classification.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         'NAME': os.environ.get('DB_NAME'),          # Nombre de la base de datos
+#         'USER': os.environ.get('DB_USER'),          # Usuario de la base de datos
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),  # Contraseña de la base de datos
+#         'HOST': os.environ.get('DB_HOST'),          # Host de la base de datos
+#         'PORT': os.environ.get('DB_PORT'), 
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        'NAME': os.environ.get('DB_NAME'),          # Nombre de la base de datos
-        'USER': os.environ.get('DB_USER'),          # Usuario de la base de datos
-        'PASSWORD': os.environ.get('DB_PASSWORD'),  # Contraseña de la base de datos
-        'HOST': os.environ.get('DB_HOST'),          # Host de la base de datos
-        'PORT': os.environ.get('DB_PORT'), 
+        "NAME": "DB_package_manage",
+        "USER": "admin",
+        "PASSWORD": "admin",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
