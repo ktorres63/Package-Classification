@@ -1,0 +1,3 @@
+SECRET_KEY = 'django-insecure-0_3o#^y0acfo=x9-ac!1q9_w=yk%a&3v(ko+%7w7!x******'
+SUPABASE_HOST = '****.pooler.supabase.com'
+SUPABASE_PASSWORD= ''
