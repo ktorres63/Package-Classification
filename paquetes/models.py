@@ -2,7 +2,6 @@ from django.db import models
 from usuarios.models import Usuario
 from nodo.models import Nodo  
 
-# Create your models here.
 
 class Paquete(models.Model):
     id = models.AutoField(primary_key=True)        # ID del paquete (clave primaria)
@@ -20,6 +19,14 @@ class Paquete(models.Model):
         Nodo,  # Referencia al modelo Nodo
         related_name='paquetes_destino',  # Nombre relacionado para acceder desde Nodo
         on_delete=models.CASCADE,  # Eliminar el paquete si el nodo destino se elimina
+    )
+    nodo_actual = models.ForeignKey(  # Campo para almacenar el nodo actual
+        Nodo,
+        related_name='paquetes_actuales',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text="Nodo actual en el que se encuentra el paquete"
     )
     fecha_creacion = models.DateTimeField(auto_now_add=True)  # Fecha de creación del paquete
 

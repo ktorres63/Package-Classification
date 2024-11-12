@@ -36,7 +36,7 @@ def crear_ruta_para_paquete(sender, instance, created, **kwargs):
                     paquete=instance,
                     nodo_inicio=nodo_origen_bd,
                     nodo_fin=nodo_destino_bd,
-                    tiempo=peso,
+                    duracion=peso,
                     estado=0  # Estado inicial
                 )
                 print(f"Se creó la ruta de {nodo_origen} a {nodo_destino} con tiempo {peso} en la base de datos.")
