@@ -87,26 +87,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'package_classification.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "packageClassification",
-#         "USER": "postgres",
-#         "PASSWORD": "******",
-#         "HOST": "secretJSJS.cncgcsmmsnfp.us-east-2.rds.amazonaws.com",
-#         "PORT": "5432",
-#     }
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
-        "USER": "postgres.kkajcopouvxaqppnaeso",
+        "USER": os.environ.get("SUPABASE_USER"),
         "PASSWORD": os.environ.get("SUPABASE_PASSWORD"),
         "HOST": os.environ.get("SUPABASE_HOST"),
         "PORT": "6543",
