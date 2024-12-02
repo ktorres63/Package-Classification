@@ -13,8 +13,16 @@ class ObtenerRutaPorPaqueteYNodo(APIView):
         except Ruta.DoesNotExist:
             return Response({"detail": "Ruta no encontrada"}, status=status.HTTP_404_NOT_FOUND)
         
+        # Obtener el paquete asociado
+        paquete = ruta.paquete
+
+        
         # Retornar el ID de la ruta y nodo_fin_id
-        return Response({"ruta_id": ruta.id, "nodo_fin_id": ruta.nodo_fin_id}, status=status.HTTP_200_OK)
+        return Response({
+            "ruta_id": ruta.id,
+            "nodo_fin_id": ruta.nodo_fin_id,
+            "nodo_paquete_destino": paquete.nodo_destino.id if paquete and paquete.nodo_destino else None,
+        }, status=status.HTTP_200_OK)
 
 class ActualizarEstadoRuta(APIView):
     def put(self, request, id_paquete, id_nodo_inicio):

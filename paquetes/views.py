@@ -6,6 +6,24 @@ from rest_framework.response import Response
 from rest_framework import status
 from nodo.models import Nodo  
 
+class PaqueteDetailView(APIView):
+    """
+    Vista para obtener todos los datos de un paquete según su ID.
+    """
+    def get(self, request, id_paquete):
+        try:
+            # Obtén el paquete según el ID proporcionado
+            paquete = Paquete.objects.get(id=id_paquete)
+            
+            # Serializa los datos del paquete
+            serializer = PaqueteSerializer(paquete)
+            
+            # Retorna los datos serializados
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        except Paquete.DoesNotExist:
+            # Retorna un error si el paquete no existe
+            return Response({"detail": "Paquete no encontrado"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class PaqueteCreateView(generics.CreateAPIView):
