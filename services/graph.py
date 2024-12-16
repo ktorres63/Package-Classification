@@ -1,7 +1,7 @@
 import networkx as nx
 
 def grafo():
-    grafo = nx.DiGraph()
+    grafo = nx.Graph()
 
     nodos = ["TACN", "AQP", "MADI", "AYAC","UCAY","LIM","SANM","TUM","LOR"]
     grafo.add_nodes_from(nodos)
